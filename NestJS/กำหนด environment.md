@@ -7,7 +7,7 @@ Step 1: กำหนด NODE_ENV ใน script
 {
     ...
     script: {
-        "start:dev": "set NODE_ENV={dev, production, more...} && nest ...."
+        "start:{dev, production, more...}": "set NODE_ENV={dev, production, more...} && nest ...."
     }
 }
 ```
