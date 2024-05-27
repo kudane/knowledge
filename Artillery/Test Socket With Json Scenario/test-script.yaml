@@ -1,0 +1,19 @@
+config:
+  target: "{http, wss}://localhost:8000" 
+  socketio:
+    transports: ["websocket"]
+  phases:
+    - duration: 5
+      arrivalCount: 10
+  processor: "./processor.js"
+scenarios:
+  - name: "loadtest"
+    engine: "socketio"
+    flow:
+      - function: "handleBidding"
+      - emit:
+          channel: "welcome"
+          data:
+            {
+              message: "{{ greetingMessage }}",
+            }

@@ -1,0 +1,1 @@
+artillery run --output test-script-report.json test-script.yaml && exit 1
