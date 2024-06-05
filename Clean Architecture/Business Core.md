@@ -43,4 +43,6 @@ public class PingHandler : IPingHandler
 } 
 ```
 
+Step 4: นำไปใช้ตาม framework ที่ใช้งาน อาจจะมีความต่างในด้าน syntax อยู่บ้าง ทุกภาษาย่อมมีจุดที่มีเหมือนกันเสมอๆ
+
 >> have fun
