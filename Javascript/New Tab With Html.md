@@ -2,7 +2,7 @@
 
 ```js
 const html = '<html><body><p>Hello, world!</p></body></html>';
-const blob = new Blob([html], { type: 'text/html'});
+const blob = new Blob([html], { type: 'text/html;charset=utf-8'});
 const url = URL.createObjectURL(blob);
 window.open(url, '_blank');
 ```
