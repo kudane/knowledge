@@ -1,7 +1,9 @@
 package auth
 
-import mail "net/smtp"
+import "net/smtp"
 
-func NewAuthGmail(username, password, host string) mail.Auth {
-	return mail.PlainAuth("", username, password, host)
+func NewAuthGmail(username, password, host, port string) (string, smtp.Auth) {
+	server := host + port
+	auth := smtp.PlainAuth("", username, password, host)
+	return server, auth
 }

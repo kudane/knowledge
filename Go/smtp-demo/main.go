@@ -20,12 +20,30 @@ func main() {
 		To(to).
 		Body([]byte(msg))
 
+	// gmail
 	// create auth method
-	auth := auth.NewAuthGmail("host@address.com", "password", "smtp.gmail.com")
+	gmailServer, gmailAuth := auth.NewAuthGmail("host@address.com", "password", "smtp.gmail.com", ":587")
 
 	// create mail serder & apply auth & call send
-	err := mail.NewMailSender("smtp.gmail.com:587").
-		Auth(auth).
+	err := mail.NewMailSender(gmailServer).
+		Auth(gmailAuth).
+		Send(mailer.ToSend())
+
+	// handle error, if need
+	if err != nil {
+		log.Printf("smtp error: %s", err)
+		return
+	}
+
+	// office 365
+	// create auth method
+	// smtp-mail.outlook.com
+	// smtp.office365.com
+	office365Server, office365Auth := auth.NewAuthOffeice365("host@address.com", "password", "smtp.gmail.com", ":587")
+
+	// create mail serder & apply auth & call send
+	err = mail.NewMailSender(office365Server).
+		Auth(office365Auth).
 		Send(mailer.ToSend())
 
 	// handle error, if need
